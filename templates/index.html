@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h4 class="text-center">CPSC 437/537: Database Systems Project</h4>
+<p>Lorem Ipsum</p>
+
+<h4 class="text-center" style="padding-top: 50px;">Parameter Selection</h4>
+<div class="form-group">
+    <label for="environment">Mushroom</label>
+    <select class="form-control" id="env_selector" name="environment">
+      <option value="Beechwood">Filler</option>
+      <!-- <option value="Benevolence">Benevolence</option>
+      <option value="Ihlen">Ihlen</option>
+      <option value="Merom">Merom</option>
+      <option value="Pomaria">Pomaria</option>
+      <option value="Wainscott">Wainscott</option> -->
+    </select>
+    <!-- <label for="poses">Number of Poses</label>
+    <select class="form-control" id="pose_selector" name="poses">
+      <option value="single">1</option>
+      <option value="distribution">36</option>
+    </select> -->
+</div>
+<button id="submit" type="submit" class="btn btn-primary">Submit</button>
+
+<div class="container" style="padding-top: 50px;">
+    <h4 class="text-center" id='results_label'>{{ img_label }}</h4>
+    <div class="well text-center">
+      <div class="row d-flex justify-content-center" style="padding-top: 20px;">
+        <!-- <div class="column">
+          <span class="dot unknown" id="unknown_dot"></span>
+          <label for="unknown_dot" style="padding-right: 1.5em;">Unknown space</label>
+        </div>
+        <div class="column">
+          <span class="dot tall" id="tall_dot"></span>
+          <label for="tall_dot" style="padding-right: 1.5em;">Tall obstacle</label>
+        </div> -->
+        <!-- <div class="column">
+          <span class="dot short" id="short_dot"></span>
+          <label for="short_dot" style="padding-right: 1.5em;">Short obstacle</label>
+        </div>
+        <div class="column">
+          <span class="dot free" id="free_dot"></span>
+          <label for="free_dot" style="padding-right: 1.5em;">Free space</label>
+        </div>
+        <div class="column">
+          <span class="dot prediction" id="prediction_dot"></span>
+          <label for="prediction_dot" style="padding-right: 1.5em;">Predicted pose</label>
+        </div>
+        <div class="column">
+          <span class="dot distribution" id="distribution_dot"></span>
+          <label for="distribution_dot" style="padding-right: 1.5em;">Prediction distribution</label>
+        </div> -->
+        <div class="column">
+          <span class="dot context" id="context_dot"></span>
+          <label for="context_dot" style="padding-right: 1.5em;">Context</label>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <div class="col-md-6">
+          <img src="" class="img-fluid" style="max-width:92%;" alt="", id="opt_img_plot">
+          <label for="opt_img_plot">Geometric Method</label>
+        </div>
+        <div class="col-md-6">
+          <img src="" class="img-fluid" style="max-width:92%;" alt="", id="gan_img_plot">
+          <label for="gan_img_plot">Data-driven Method</label>
+        </div> -->
+      </div>
+    </div>
+</div>
+
+{% endblock %}
