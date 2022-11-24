@@ -2,6 +2,7 @@ venv/
 .vscode/
 .DS_Store
 data/
+databases/
 
 # compiled files
 __pycache__/
