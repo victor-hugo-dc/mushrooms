@@ -17,7 +17,6 @@
   </form>
 </div>
 
-
 <div class="container">
   <div class="well text-center">
     <div class="row">
@@ -25,7 +24,9 @@
         {{ map_data | safe }}
       </div>
       <div class="col-md-6">
-        <!-- Here add info about genus or pictures -->
+        {% for img in img_data %}
+            <img src="{{ img }}" class="img-fluid" style="max-width:100%;" alt="", id="">
+        {% endfor %}
       </div>
     </div>
   </div>

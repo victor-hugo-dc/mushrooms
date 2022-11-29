@@ -1,9 +1,9 @@
 import folium
 from sklearn.utils import shuffle
 import sqlite3
-import os
 import random
-from PIL import Image
+import base64
+from io import BytesIO
 
 """
 Connect to both databases and get the latitude and longitude values
@@ -32,9 +32,18 @@ def create_map(genus: str) -> folium.Map:
     connection.close()
     return result
 
-def get_image(genus: str) -> Image:
-    directory_path: str = f"./data/Mushrooms/{genus}/"
-    directory: list = os.listdir(directory_path)
-    filepath: str = random.choice(directory)
-    image: Image = Image.open(f"{directory_path}{filepath}")
-    return image
+def get_images(genus: str):
+    connection: sqlite3.Connection = sqlite3.connect('./databases/images.db')
+    cursor: sqlite3.Cursor = connection.cursor()
+    command: str = f"SELECT img FROM images\
+        WHERE (genus = '{genus}')"
+    cursor.execute(command)
+
+    result: list = []
+    for image in random.choices(cursor.fetchall(), k = 10):
+        img_buf = BytesIO(image[0])
+        link = base64.b64encode(img_buf.getbuffer()).decode('ascii')
+        result.append(f'data:image/jpg;base64,{link}')
+
+    connection.close()
+    return result

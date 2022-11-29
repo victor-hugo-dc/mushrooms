@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from website_utils import create_map
+from website_utils import create_map, get_images
 from flask_wtf import FlaskForm
 from wtforms import SelectField
 import folium
@@ -24,10 +24,10 @@ def index():
     if form.validate_on_submit():
         choice: str = form.genus.data
         map_data: folium.Map = create_map(choice)
-        return render_template("index.html", app_data = app_data, form=form, map_data = map_data._repr_html_())
+        return render_template("index.html", app_data = app_data, form=form, map_data = map_data._repr_html_(), img_data = get_images(choice))
 
     else:
-        return render_template("index.html", app_data = app_data, form=form, map_data = None)
+        return render_template("index.html", app_data = app_data, form=form, map_data = None, img_data = [])
 
 if __name__ == '__main__':
     app.run(debug = True)
