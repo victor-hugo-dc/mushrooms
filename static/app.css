@@ -1,6 +1,6 @@
 .col-md-7{
     flex: 0 0 58.333333%;
-    max-width: 40%;
+    max-width: 32%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
